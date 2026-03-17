@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+/* Ahdus-style theme variables (from Ahdus_Firebase_Version.html) */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-canvas: #f5f7fa;
+  --text-primary: #1a1a1a;
+  --text-secondary: #5f6368;
+  --border-light: #e8eaed;
+  --border-medium: #dadce0;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --toolbar-bg: #ffffff;
+  --accent-primary: #4f46e5;
+  --accent-hover: #4338ca;
+  --edge-stroke: #007aff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #242424;
+    --bg-canvas: #161616;
+    --text-primary: #f5f5f5;
+    --text-secondary: #b0b0b0;
+    --border-light: #3a3a3a;
+    --border-medium: #4a4a4a;
+    --toolbar-bg: #1f1f1f;
+    --accent-primary: #6366f1;
+    --accent-hover: #818cf8;
+    --edge-stroke: #60a5fa;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-sans), Inter, system-ui, sans-serif;
+}
+
+/* React Flow canvas background (dot grid like Ahdus) */
+.react-flow__background {
+  background-color: var(--bg-canvas) !important;
+  background-image: radial-gradient(var(--border-medium) 1px, transparent 0) !important;
+  background-size: 20px 20px !important;
+}
+
+/* Edge stroke and marker */
+.react-flow__edge-path {
+  stroke: var(--edge-stroke) !important;
+  stroke-width: 3;
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+  stroke: var(--accent-primary) !important;
+}
