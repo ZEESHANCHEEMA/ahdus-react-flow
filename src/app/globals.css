@@ -9,6 +9,7 @@
   --bg-canvas: #f5f7fa;
   --text-primary: #1a1a1a;
   --text-secondary: #5f6368;
+  --text-tertiary: #9aa0a6;
   --border-light: #e8eaed;
   --border-medium: #dadce0;
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
@@ -25,9 +26,10 @@
     --bg-primary: #1a1a1a;
     --bg-secondary: #242424;
     --bg-canvas: #161616;
-    --text-primary: #f5f5f5;
-    --text-secondary: #b0b0b0;
-    --border-light: #3a3a3a;
+  --text-primary: #f5f5f5;
+  --text-secondary: #b0b0b0;
+  --text-tertiary: #737373;
+  --border-light: #3a3a3a;
     --border-medium: #4a4a4a;
     --toolbar-bg: #1f1f1f;
     --accent-primary: #6366f1;

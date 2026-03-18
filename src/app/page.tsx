@@ -26,9 +26,9 @@ import SettingsModal from "@/components/SettingsModal";
 const nodeTypes = { canvasCard: CanvasCardNode };
 
 const initialNodes: Node[] = [
-  { id: "1", type: "canvasCard", position: { x: 100, y: 100 }, data: { label: "Sticky / Input" } },
-  { id: "2", type: "canvasCard", position: { x: 420, y: 100 }, data: { label: "AI Action" } },
-  { id: "3", type: "canvasCard", position: { x: 260, y: 280 }, data: { label: "Another card" } },
+  { id: "1", type: "canvasCard", position: { x: 100, y: 100 }, data: { label: "Sticky / Input", content: "" } },
+  { id: "2", type: "canvasCard", position: { x: 420, y: 100 }, data: { label: "AI Action", content: "" } },
+  { id: "3", type: "canvasCard", position: { x: 260, y: 280 }, data: { label: "Another card", content: "" } },
 ];
 
 const initialEdges: Edge[] = [
@@ -68,7 +68,7 @@ function CanvasContent() {
           id,
           type: "canvasCard",
           position: { x: 150 + (offset % 400), y: 120 + Math.floor(offset / 400) * 80 },
-          data: { label: CARD_LABELS[kind] },
+          data: { label: CARD_LABELS[kind], content: "" },
         })
       );
     },
@@ -161,6 +161,7 @@ function CanvasContent() {
               onConnect={onConnect}
               isValidConnection={isValidConnection}
               nodeTypes={nodeTypes}
+              noDragClassName="nodrag"
               fitView
               className="react-flow-ahdus"
               minZoom={0.2}
