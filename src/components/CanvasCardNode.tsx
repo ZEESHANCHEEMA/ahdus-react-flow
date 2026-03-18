@@ -37,19 +37,32 @@ const CanvasCardNode = ({ id, data, selected }: NodeProps) => {
           : "var(--shadow-sm)",
       }}
     >
+      {/* Minimal handle: center on card edge so wire meets card with no gap */}
       <Handle
         type="target"
         position={Position.Left}
         id="left"
-        className="!absolute !left-[-8px] !top-1/2 !-translate-y-1/2 !h-3.5 !w-3.5 !border-[3px] !border-[#007aff] !bg-white !rounded-full !opacity-0 hover:!opacity-100 focus:!opacity-100 group-hover:!opacity-100"
-        style={{ left: -8 }}
+        className="!absolute !top-1/2 !-translate-y-1/2 !border-0 !bg-transparent !opacity-0 hover:!opacity-100 focus:!opacity-100 group-hover:!opacity-100"
+        style={{
+          width: 8,
+          height: 8,
+          left: -1,
+          background: "none",
+          border: "none",
+        }}
       />
       <Handle
         type="source"
         position={Position.Right}
         id="right"
-        className="!absolute !right-[-8px] !top-1/2 !-translate-y-1/2 !h-3.5 !w-3.5 !border-[3px] !border-[#007aff] !bg-white !rounded-full !opacity-0 hover:!opacity-100 focus:!opacity-100 group-hover:!opacity-100"
-        style={{ right: -8 }}
+        className="!absolute !top-1/2 !-translate-y-1/2 !border-0 !bg-transparent !opacity-0 hover:!opacity-100 focus:!opacity-100 group-hover:!opacity-100"
+        style={{
+          width: 8,
+          height: 8,
+          right: 0,
+          background: "none",
+          border: "none",
+        }}
       />
 
       {/* Card header - drag handle (no nodrag) */}

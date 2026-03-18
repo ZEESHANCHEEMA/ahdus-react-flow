@@ -14,7 +14,6 @@ import {
   type Connection,
   type Edge,
   type Node,
-  MarkerType,
   type OnConnect,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
@@ -102,7 +101,7 @@ function CanvasContent() {
         addEdge(
           {
             ...connection,
-            markerEnd: { type: MarkerType.ArrowClosed },
+            markerEnd: "url(#edge-arrow-flush)",
             style: { stroke: "var(--edge-stroke, #007aff)", strokeWidth: 3 },
           },
           eds
@@ -140,7 +139,22 @@ function CanvasContent() {
             </span>
           </header>
 
-          <div className="flex-1 min-h-0">
+          <div className="flex-1 min-h-0 relative">
+            {/* Custom arrow marker: refX=0 so path meets arrow tail with no gap */}
+            <svg className="absolute w-0 h-0" aria-hidden="true">
+              <defs>
+                <marker
+                  id="edge-arrow-flush"
+                  markerWidth="10"
+                  markerHeight="7"
+                  refX="0"
+                  refY="3.5"
+                  orient="auto"
+                >
+                  <polygon points="0 0, 10 3.5, 0 7" fill="var(--edge-stroke, #007aff)" />
+                </marker>
+              </defs>
+            </svg>
             <ReactFlow
               nodes={nodes}
               edges={edges}
@@ -155,7 +169,7 @@ function CanvasContent() {
               minZoom={0.2}
               maxZoom={2}
               defaultEdgeOptions={{
-                markerEnd: { type: MarkerType.ArrowClosed },
+                markerEnd: "url(#edge-arrow-flush)",
                 style: { stroke: "var(--edge-stroke, #007aff)", strokeWidth: 3 },
               }}
             >
