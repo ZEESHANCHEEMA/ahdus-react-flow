@@ -26,22 +26,10 @@ import SettingsModal from "@/components/SettingsModal";
 const nodeTypes = { canvasCard: CanvasCardNode };
 
 const initialNodes: Node[] = [
-  { id: "1", type: "canvasCard", position: { x: 100, y: 100 }, data: { label: "Sticky / Input", content: "" } },
-  { id: "2", type: "canvasCard", position: { x: 420, y: 100 }, data: { label: "AI Action", content: "" } },
-  { id: "3", type: "canvasCard", position: { x: 260, y: 280 }, data: { label: "Another card", content: "" } },
+  { id: "1", type: "canvasCard", position: { x: 100, y: 100 }, data: { label: "Card", content: "" } },
 ];
 
-const initialEdges: Edge[] = [
-  {
-    id: "e1-2",
-    source: "1",
-    target: "2",
-    sourceHandle: "right",
-    targetHandle: "left",
-    markerEnd: { type: MarkerType.ArrowClosed },
-    style: { stroke: "var(--edge-stroke, #007aff)", strokeWidth: 3 },
-  },
-];
+const initialEdges: Edge[] = [];
 
 type CardKind = "document" | "text" | "block" | "group";
 
@@ -56,7 +44,7 @@ function CanvasContent() {
   const { fitView } = useReactFlow();
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-  const nextIdRef = useRef(4);
+  const nextIdRef = useRef(2);
   const [settingsOpen, setSettingsOpen] = useState(false);
 
   const addCard = useCallback(
